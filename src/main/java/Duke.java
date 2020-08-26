@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Duke {
@@ -13,12 +14,23 @@ public class Duke {
                 " What can I do for you?\n");
 
         String line;
+        String[] list = new String[100];
+        int i = 0;
+
         Scanner in = new Scanner(System.in);
         line = in.nextLine();
         while (!line.equals("bye")){
-            System.out.println(line);
+            if (!line.equals("list")) {
+                list[i] = Integer.toString(i + 1) + ". " + line;
+                System.out.println("added: " + line);
+                i++;
+            } else {
+                for (String listNum : Arrays.copyOf(list, i)){
+                    System.out.println(listNum);
+                }
+            }
             line = in.nextLine();
         }
-        System.out.println(" Bye. Hope to see you again soon!\n");
+        System.out.println("Bye. Hope to see you again soon!\n");
     }
 }
