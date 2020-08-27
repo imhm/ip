@@ -15,15 +15,15 @@ public class Duke {
 
         String line;
         Task[] taskList = new Task[100];
-        int i = 0;
-        int taskNumber;
+        int taskListNumber = 0;
+        int taskNumberCompleted;
 
         Scanner in = new Scanner(System.in);
         line = in.nextLine();
+
         while (!line.equals("bye")){
 
             switch (line){
-
             case "list":
                 printTaskList(taskList);
                 break;
@@ -31,25 +31,40 @@ public class Duke {
             default:
                 if(line.contains("done")){
                     //get the task number from user input
-                    taskNumber = Integer.parseInt(line.substring(line.length() - 1));
-                    taskList[taskNumber - 1].markAsDone(); // -1 to cater for index start from 0
+                    taskNumberCompleted = Integer.parseInt(line.substring(line.length() - 1));
+                    taskList[taskNumberCompleted - 1].markAsDone(); // -1 to cater for index starting from 0
+
+                    printDukeBorder();
+                    System.out.println("Good work! I've marked this task as done: \n" +
+                            "[" + taskList[taskNumberCompleted - 1].getStatusIcon() + "] " + taskList[taskNumberCompleted - 1].getDescription());
                 } else {
-                    taskList[i] = new Task(line);
-                    i++;
+                    taskList[taskListNumber] = new Task(line);
+
+                    printDukeBorder();
+                    System.out.println("Task added: " + taskList[taskListNumber].getDescription());
+
+                    taskListNumber++;
                 }
             }
 
             line = in.nextLine();
         }
-
+        
+        printDukeBorder();
         System.out.println("Bye. Hope to see you again soon!\n");
     }
 
     public static void printTaskList(Task[] taskList){
-        int i = 1;
-        for (Task taskListNum : Arrays.copyOf(taskList, Task.getTotalTask())){
-            System.out.printf("%d." + "[" + taskListNum.getStatusIcon() + "] " + taskListNum.getDescription() + "\n", i);
-            i++;
+        int taskNumber = 1;
+        printDukeBorder();
+        System.out.println("This is your list of task(s):");
+        for (Task taskListNumber : Arrays.copyOf(taskList, Task.getTotalTask())){
+            System.out.printf("%d." + "[" + taskListNumber.getStatusIcon() + "] " + taskListNumber.getDescription() + "\n", taskNumber);
+            taskNumber++;
         }
+    }
+
+    public static void printDukeBorder(){
+        System.out.println("............. DUKE CHATBOX ^^ ............");
     }
 }

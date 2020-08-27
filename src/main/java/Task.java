@@ -10,8 +10,7 @@ public class Task {
     public Task(String description) {
         this.description = description;
         this.isDone = false;
-        totalTask++;
-        System.out.println("added: " + description);
+        totalTask++;        
     }
 
     public String getStatusIcon() {
@@ -28,7 +27,5 @@ public class Task {
 
     public void markAsDone() {
         this.isDone = true;
-        System.out.println("Nice! I've marked this task as done: \n" + 
-                    "[" + this.getStatusIcon() + "] " + this.getDescription());
     }
 }
