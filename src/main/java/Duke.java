@@ -64,8 +64,7 @@ public class Duke {
         taskList[taskNumberCompleted - 1].markAsDone(); // -1 to cater for index starting from 0
 
         printDukeBorder(true);
-        System.out.println("Good work! I've marked this task as done: \n" +
-                "[" + taskList[taskNumberCompleted - 1].getStatusIcon() + "] " + taskList[taskNumberCompleted - 1].getDescription());
+        System.out.println("Good work! I've marked this task as done: \n" + taskList[taskNumberCompleted - 1]);
         printDukeBorder(false);
     }
 
