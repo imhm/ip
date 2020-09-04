@@ -5,17 +5,24 @@ public class Task {
     protected boolean isDone;
 
     private static int totalTask = 0;
-    private static Task[] taskList = new Task[100];
+
+    public static final int MAX_TASK = 100;
+
+    public static Task[] taskList = new Task[MAX_TASK];
 
     public Task(String description) {
         this.description = description;
         this.isDone = false;
-        totalTask++;        
+        totalTask++;
     }
 
     @Override
     public String toString() {
         return "[" + this.getStatusIcon() + "] " + this.description;
+    }
+
+    public static void setTaskList(Task taskList) {
+        Task.taskList[totalTask - 1] = taskList;
     }
 
     public String getStatusIcon() {

@@ -4,23 +4,22 @@ public class Duke {
 
     public static void main(String[] args) {
         printWelcomeMessage();
-        Task[] taskList = new Task[100];
-        handleUserInput(taskList);
+        handleUserInput();
         printExitMessage();
     }
 
-    public static void handleUserInput(Task[] taskList) {
+    public static void handleUserInput() {
         Scanner in = new Scanner(System.in);
         String userInput = in.nextLine().trim();
 
-        while (!userInput.equals("bye")){
+        while (!userInput.equals("bye")) {
             if (userInput.equals("list")) {
-                userViewTaskList(taskList);
+                userViewTaskList();
             } else {
-                if(userInput.contains("done")){
-                    userCompleteTask(taskList, userInput);
+                if (userInput.contains("done")) {
+                    userCompleteTask(userInput);
                 } else {
-                    userAddTask(taskList, userInput);
+                    userAddTask(userInput);
                 }
             }
 
@@ -28,24 +27,24 @@ public class Duke {
         }
     }
 
-    public static void userAddTask(Task[] taskList, String userInput) {
+    public static void userAddTask(String userInput) {
         String[] command;
 
-        command =  userInput.split(" ",2);
+        command = userInput.split(" ", 2);
 
         int taskListNumber = Task.getTotalTask();
 
-        switch (command[0]){
+        switch (command[0]) {
         case "todo":
-            taskList[taskListNumber] = new Todo(command[1]);
+            Task.setTaskList(new Todo(command[1]));
             break;
         case "deadline":
             command = command[1].split("/by");
-            taskList[taskListNumber] = new Deadline(command[0], command[1]);
+            Task.setTaskList(new Deadline(command[0], command[1]));
             break;
         case "event":
             command = command[1].split("/at");
-            taskList[taskListNumber] = new Event(command[0], command[1]);
+            Task.setTaskList(new Event(command[0], command[1]));
             break;
         default:
             break;
@@ -53,26 +52,25 @@ public class Duke {
 
         printDukeBorder(true);
         System.out.println("Got it. I've added this task:");
-        System.out.println(taskList[taskListNumber]);
+        System.out.println(Task.taskList[Task.getTotalTask() - 1]);
         System.out.println("Your total tasks: " + Task.getTotalTask());
         printDukeBorder(false);
     }
 
-    public static void userCompleteTask(Task[] taskList, String userInput) {
-        int taskNumberCompleted;
-        taskNumberCompleted = Integer.parseInt(userInput.substring(userInput.length() - 1));
-        taskList[taskNumberCompleted - 1].markAsDone(); // -1 to cater for index starting from 0
+    public static void userCompleteTask(String userInput) {
+        int taskNumberCompleted = Integer.parseInt(userInput.substring(userInput.length() - 1));
+        Task.taskList[taskNumberCompleted - 1].markAsDone(); // - 1 to cater for index starting from 0
 
         printDukeBorder(true);
-        System.out.println("Good work! I've marked this task as done: \n" + taskList[taskNumberCompleted - 1]);
+        System.out.println("Good work! I've marked this task as done:\n" + Task.taskList[taskNumberCompleted - 1]);
         printDukeBorder(false);
     }
 
-    public static void userViewTaskList(Task[] taskList){
+    public static void userViewTaskList() {
         printDukeBorder(true);
         System.out.println("This is your list of task(s):");
-        for (int i = 0; i < Task.getTotalTask(); i++){
-            System.out.printf("%d." + taskList[i] + "\n", i + 1);
+        for (int i = 0; i < Task.getTotalTask(); i++) {
+            System.out.printf("%d." + Task.taskList[i] + "\n", i + 1);
         }
         printDukeBorder(false);
     }
@@ -97,7 +95,7 @@ public class Duke {
         printDukeBorder(false);
     }
 
-    public static void printDukeBorder(boolean top){
+    public static void printDukeBorder(boolean top) {
         if (top) {
             System.out.println("............. DUKE CHATBOX ^^ ............");
         } else {
