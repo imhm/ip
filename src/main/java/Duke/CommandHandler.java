@@ -34,8 +34,8 @@ public abstract class CommandHandler {
 
     private static void DukeExceptionHandler(DukeException e) {
         switch (e.getException()) {
-        case "no description":
-            System.out.println("Error: The description of this command cannot be empty.");
+        case "todo":
+            System.out.println("Error: The description of todo cannot be empty.");
             break;
         case "deadline":
             System.out.println("Error: Please key in the deadline in this format: deadline ... /by ...");
@@ -44,7 +44,7 @@ public abstract class CommandHandler {
             System.out.println("Error: Please key in the event in this format: deadline ... /at ...");
             break;
         case "invalid command":
-            System.out.println("OOPS!!! I'm sorry, but I don't know what that means :-(\n"+
+            System.out.println("OOPS!!! I'm sorry, but I don't know what that means :-(\n" +
                     "Available commands: list, done, todo, deadline, event");
             break;
         case "invalid task complete":
@@ -60,31 +60,29 @@ public abstract class CommandHandler {
 
         command = userInput.split(" ", 2);
 
-        if (command.length<2) {
-            throw new DukeException("no description");
-        }
-
         switch (command[0]) {
         case "todo":
-            Task.setTaskList(new Todo(command[1]));
+            try {
+                Task.setTaskList(new Todo(command[1]));
+            } catch (Exception e) {
+                throw new DukeException("todo");
+            }
             break;
         case "deadline":
-            command = command[1].split("/by");
-
-            if (command.length<2) {
+            try {
+                command = command[1].split("/by");
+                Task.setTaskList(new Deadline(command[0], command[1]));
+            } catch (Exception e) {
                 throw new DukeException("deadline");
             }
-
-            Task.setTaskList(new Deadline(command[0], command[1]));
             break;
         case "event":
-            command = command[1].split("/at");
-
-            if (command.length<2) {
+            try {
+                command = command[1].split("/at");
+                Task.setTaskList(new Event(command[0], command[1]));
+            } catch (Exception e) {
                 throw new DukeException("event");
             }
-
-            Task.setTaskList(new Event(command[0], command[1]));
             break;
         default:
             throw new DukeException("invalid command");
@@ -97,10 +95,10 @@ public abstract class CommandHandler {
         Duke.printDukeBorder(false);
     }
 
-    public static void userCompleteTask(String userInput) throws DukeException{
+    public static void userCompleteTask(String userInput) throws DukeException {
         int taskNumberCompleted = Integer.parseInt(userInput.replace("done", "").trim());
 
-        if (taskNumberCompleted > Task.getTotalTask()){
+        if (taskNumberCompleted > Task.getTotalTask()) {
             throw new DukeException("invalid task complete");
         }
 

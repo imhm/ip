@@ -52,9 +52,10 @@ This is your list of task(s):
 4.[T][✘] join sports club
 5.[T][✘] borrow book
 ..........................................
-Error: The description of this command cannot be empty.
+Error: The description of todo cannot be empty.
 Error: Please key in the deadline in this format: deadline ... /by ...
-Error: The description of this command cannot be empty.
+OOPS!!! I'm sorry, but I don't know what that means :-(
+Available commands: list, done, todo, deadline, event
 ............. DUKE CHATBOX ^^ ............
 Bye. Hope to see you again soon!
 
