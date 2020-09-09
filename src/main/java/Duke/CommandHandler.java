@@ -1,3 +1,10 @@
+package Duke;
+
+import Duke.Task.Deadline;
+import Duke.Task.Event;
+import Duke.Task.Task;
+import Duke.Task.Todo;
+
 import java.util.Scanner;
 
 public abstract class CommandHandler {
@@ -27,8 +34,8 @@ public abstract class CommandHandler {
 
     private static void DukeExceptionHandler(DukeException e) {
         switch (e.getException()) {
-        case "todo":
-            System.out.println("Error: The description of a todo cannot be empty.");
+        case "no description":
+            System.out.println("Error: The description of this command cannot be empty.");
             break;
         case "deadline":
             System.out.println("Error: Please key in the deadline in this format: deadline ... /by ...");
@@ -53,14 +60,12 @@ public abstract class CommandHandler {
 
         command = userInput.split(" ", 2);
 
+        if (command.length<2) {
+            throw new DukeException("no description");
+        }
 
         switch (command[0]) {
         case "todo":
-
-            if (command.length<2) {
-                throw new DukeException("todo");
-            }
-
             Task.setTaskList(new Todo(command[1]));
             break;
         case "deadline":

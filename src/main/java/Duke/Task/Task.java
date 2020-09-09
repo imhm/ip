@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package Duke.Task;
 
 public class Task {
     protected String description;
