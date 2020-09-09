@@ -36,8 +36,12 @@ public abstract class CommandHandler {
         case "event":
             System.out.println("Error: Please key in the event in this format: deadline ... /at ...");
             break;
-        case "Invalid command":
-            System.out.println("OOPS!!! I'm sorry, but I don't know what that means :-(");
+        case "invalid command":
+            System.out.println("OOPS!!! I'm sorry, but I don't know what that means :-(\n"+
+                    "Available commands: list, done, todo, deadline, event");
+            break;
+        case "invalid task complete":
+            System.out.println("Error: Total task(s): " + Task.getTotalTask());
             break;
         default:
             break;
@@ -78,7 +82,7 @@ public abstract class CommandHandler {
             Task.setTaskList(new Event(command[0], command[1]));
             break;
         default:
-            throw new DukeException("Invalid command");
+            throw new DukeException("invalid command");
         }
 
         Duke.printDukeBorder(true);
@@ -88,8 +92,13 @@ public abstract class CommandHandler {
         Duke.printDukeBorder(false);
     }
 
-    public static void userCompleteTask(String userInput) {
-        int taskNumberCompleted = Integer.parseInt(userInput.substring(userInput.length() - 1));
+    public static void userCompleteTask(String userInput) throws DukeException{
+        int taskNumberCompleted = Integer.parseInt(userInput.replace("done", "").trim());
+
+        if (taskNumberCompleted > Task.getTotalTask()){
+            throw new DukeException("invalid task complete");
+        }
+
         Task.taskList[taskNumberCompleted - 1].markAsDone(); // - 1 to cater for index starting from 0
 
         Duke.printDukeBorder(true);

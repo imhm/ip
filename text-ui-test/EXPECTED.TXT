@@ -15,6 +15,7 @@ Got it. I've added this task:
 [T][✘] read book
 Your total tasks: 1
 ..........................................
+Error: Total task(s): 1
 ............. DUKE CHATBOX ^^ ............
 Got it. I've added this task:
 [D][✘] return book  (by: June 6th)
@@ -54,6 +55,7 @@ This is your list of task(s):
 Error: The description of a todo cannot be empty.
 Error: Please key in the deadline in this format: deadline ... /by ...
 OOPS!!! I'm sorry, but I don't know what that means :-(
+Available commands: list, done, todo, deadline, event
 ............. DUKE CHATBOX ^^ ............
 Bye. Hope to see you again soon!
 

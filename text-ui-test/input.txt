@@ -1,4 +1,5 @@
 todo read book
+done 2
 deadline return book /by June 6th
 done 2
 event project meeting /at July 6th 2-4pm
