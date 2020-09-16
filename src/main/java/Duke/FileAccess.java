@@ -9,24 +9,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class FileAccess {
 
-    public static final String dataFilepath = "./data/duke.txt";
+    public static final String dataFilePath = "./data/duke.txt";
 
     public static void saveData() {
-        File output = new File(dataFilepath);
-//        if (!output.exists()) {
-//            output.mkdir();
-//            try {
-//                output.createNewFile();
-//            } catch (IOException e) {
-
-//                e.printStackTrace();
-//            }
-//        }
+        File output = new File(dataFilePath);
+        createFile(output);
         try {
             FileWriter fw = new FileWriter(output);
             for (Task t : Task.taskList) {
@@ -40,7 +31,7 @@ public abstract class FileAccess {
 
     public static void importData() {
         try {
-            File input = new File(dataFilepath);
+            File input = new File(dataFilePath);
             Scanner s = new Scanner(input);
             while (s.hasNext()) {
                 extractCommand(s.nextLine());
@@ -78,6 +69,21 @@ public abstract class FileAccess {
         
         if (isDone.equals("[\u2713]")) {
             Task.taskList.get(Task.getTotalTask() - 1).markAsDone();
+        }
+    }
+
+    private static void createFile(File output) {
+        try {
+            if (output.exists()) {
+                System.out.println("File exists");
+                return;
+            }
+            if (!output.getParentFile().exists()) {
+                output.getParentFile().mkdirs();
+            }
+            output.createNewFile();
+        } catch (IOException e) {
+            System.out.println("Cannot create file; reason: " + e.getMessage());
         }
     }
 }
