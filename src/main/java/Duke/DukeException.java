@@ -1,6 +1,6 @@
 package Duke;
 
-public class DukeException extends Exception{
+public class DukeException extends Exception {
 
     private String exception;
 

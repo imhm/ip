@@ -90,7 +90,7 @@ public abstract class CommandHandler {
 
         Duke.printDukeBorder(true);
         System.out.println("Got it. I've added this task:");
-        System.out.println(Task.taskList[Task.getTotalTask() - 1]);
+        System.out.println(Task.taskList.get(Task.taskList.size() - 1));
         System.out.println("Your total tasks: " + Task.getTotalTask());
         Duke.printDukeBorder(false);
     }
@@ -102,10 +102,10 @@ public abstract class CommandHandler {
             throw new DukeException("invalid task complete");
         }
 
-        Task.taskList[taskNumberCompleted - 1].markAsDone(); // - 1 to cater for index starting from 0
+        Task.taskList.get(taskNumberCompleted - 1).markAsDone(); // - 1 to cater for index starting from 0
 
         Duke.printDukeBorder(true);
-        System.out.println("Good work! I've marked this task as done:\n" + Task.taskList[taskNumberCompleted - 1]);
+        System.out.println("Good work! I've marked this task as done:\n" + Task.taskList.get(taskNumberCompleted - 1));
         Duke.printDukeBorder(false);
     }
 
@@ -113,7 +113,7 @@ public abstract class CommandHandler {
         Duke.printDukeBorder(true);
         System.out.println("This is your list of task(s):");
         for (int i = 0; i < Task.getTotalTask(); i++) {
-            System.out.printf("%d." + Task.taskList[i] + "\n", i + 1);
+            System.out.printf("%d." + Task.taskList.get(i) + "\n", i + 1);
         }
         Duke.printDukeBorder(false);
     }

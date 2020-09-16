@@ -1,8 +1,5 @@
 package Duke.Task;
 
-import Duke.Duke;
-import Duke.Task.Task;
-
 public class Todo extends Task {
 
     public Todo(String description) {
