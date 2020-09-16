@@ -3,12 +3,14 @@ package Duke;
 public class Duke {
 
     public static void main(String[] args) {
+        FileAccess.importData();
         printWelcomeMessage();
         CommandHandler.handleUserInput();
         printExitMessage();
+        FileAccess.saveData();
     }
 
-    public static void printWelcomeMessage() {
+    private static void printWelcomeMessage() {
         printDukeBorder(true);
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
@@ -22,13 +24,13 @@ public class Duke {
         printDukeBorder(false);
     }
 
-    public static void printExitMessage() {
+    private static void printExitMessage() {
         printDukeBorder(true);
         System.out.println("Bye. Hope to see you again soon!\n");
         printDukeBorder(false);
     }
 
-    public static void printDukeBorder(boolean top) {
+    protected static void printDukeBorder(boolean top) {
         if (top) {
             System.out.println("............. DUKE CHATBOX ^^ ............");
         } else {
