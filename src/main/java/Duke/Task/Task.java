@@ -40,4 +40,9 @@ public class Task {
     public void markAsDone() {
         this.isDone = true;
     }
+
+    public static void deleteTask(int taskNumber) {
+        taskList.remove(taskNumber);
+        totalTask--;
+    }
 }
