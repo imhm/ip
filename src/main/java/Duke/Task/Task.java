@@ -1,14 +1,14 @@
 package Duke.Task;
 
+import java.util.ArrayList;
+
 public class Task {
     protected String description;
     protected boolean isDone;
 
     private static int totalTask = 0;
 
-    public static final int MAX_TASK = 100;
-
-    public static Task[] taskList = new Task[MAX_TASK];
+    public static ArrayList<Task> taskList = new ArrayList<>();
 
     public Task(String description) {
         this.description = description;
@@ -21,8 +21,8 @@ public class Task {
         return "[" + this.getStatusIcon() + "] " + this.description;
     }
 
-    public static void setTaskList(Task taskList) {
-        Task.taskList[totalTask - 1] = taskList;
+    public static void setTaskList(Task task) {
+        taskList.add(task);
     }
 
     public String getStatusIcon() {
@@ -39,5 +39,10 @@ public class Task {
 
     public void markAsDone() {
         this.isDone = true;
+    }
+
+    public static void deleteTask(int taskNumber) {
+        taskList.remove(taskNumber);
+        totalTask--;
     }
 }

@@ -17,13 +17,14 @@ public abstract class CommandHandler {
             try {
                 if (userInput.equals("list")) {
                     userViewTaskList();
+                } else if (userInput.contains("done")) {
+                    userCompleteTask(userInput);
+                } else if (userInput.contains("delete")) {
+                    userDeleteTask(userInput);
                 } else {
-                    if (userInput.contains("done")) {
-                        userCompleteTask(userInput);
-                    } else {
-                        userAddTask(userInput);
-                    }
+                    userAddTask(userInput);
                 }
+
             } catch (DukeException e) {
                 DukeExceptionHandler(e);
             }
@@ -41,14 +42,20 @@ public abstract class CommandHandler {
             System.out.println("Error: Please key in the deadline in this format: deadline ... /by ...");
             break;
         case "event":
-            System.out.println("Error: Please key in the event in this format: deadline ... /at ...");
+            System.out.println("Error: Please key in the event in this format: event ... /at ...");
             break;
         case "invalid command":
             System.out.println("OOPS!!! I'm sorry, but I don't know what that means :-(\n" +
                     "Available commands: list, done, todo, deadline, event");
             break;
-        case "invalid task complete":
+        case "invalid task action":
             System.out.println("Error: Total task(s): " + Task.getTotalTask());
+            break;
+        case "done":
+            System.out.println("Error: Please key in the command in this format: done <task number>");
+            break;
+        case "delete":
+            System.out.println("Error: Please key in the command in this format: delete <task number>");
             break;
         default:
             break;
@@ -90,22 +97,28 @@ public abstract class CommandHandler {
 
         Duke.printDukeBorder(true);
         System.out.println("Got it. I've added this task:");
-        System.out.println(Task.taskList[Task.getTotalTask() - 1]);
+        System.out.println(Task.taskList.get(Task.taskList.size() - 1));
         System.out.println("Your total tasks: " + Task.getTotalTask());
         Duke.printDukeBorder(false);
     }
 
     public static void userCompleteTask(String userInput) throws DukeException {
-        int taskNumberCompleted = Integer.parseInt(userInput.replace("done", "").trim());
+        int taskNumberCompleted;
 
-        if (taskNumberCompleted > Task.getTotalTask()) {
-            throw new DukeException("invalid task complete");
+        try {
+            taskNumberCompleted = Integer.parseInt(userInput.replace("done", "").trim());
+        } catch (Exception e) {
+            throw new DukeException("done");
         }
 
-        Task.taskList[taskNumberCompleted - 1].markAsDone(); // - 1 to cater for index starting from 0
+        if (taskNumberCompleted > Task.getTotalTask()) {
+            throw new DukeException("invalid task action");
+        }
+
+        Task.taskList.get(taskNumberCompleted - 1).markAsDone(); // - 1 to cater for index starting from 0
 
         Duke.printDukeBorder(true);
-        System.out.println("Good work! I've marked this task as done:\n" + Task.taskList[taskNumberCompleted - 1]);
+        System.out.println("Good work! I've marked this task as done:\n" + Task.taskList.get(taskNumberCompleted - 1));
         Duke.printDukeBorder(false);
     }
 
@@ -113,8 +126,28 @@ public abstract class CommandHandler {
         Duke.printDukeBorder(true);
         System.out.println("This is your list of task(s):");
         for (int i = 0; i < Task.getTotalTask(); i++) {
-            System.out.printf("%d." + Task.taskList[i] + "\n", i + 1);
+            System.out.printf("%d." + Task.taskList.get(i) + "\n", i + 1);
         }
+        Duke.printDukeBorder(false);
+    }
+
+    public static void userDeleteTask(String userInput) throws DukeException {
+        int taskNumberDelete;
+        try {
+            taskNumberDelete = Integer.parseInt(userInput.replace("delete", "").trim());
+        } catch (Exception e) {
+            throw new DukeException("delete");
+        }
+        if (taskNumberDelete > Task.getTotalTask()) {
+            throw new DukeException("invalid task action");
+        }
+
+        Duke.printDukeBorder(true);
+        System.out.println("Task deleted:\n" + Task.taskList.get(taskNumberDelete - 1));
+
+        Task.deleteTask(taskNumberDelete - 1); // - 1 to cater for index starting from 0
+
+        System.out.println("Your total tasks: " + Task.getTotalTask());
         Duke.printDukeBorder(false);
     }
 }
