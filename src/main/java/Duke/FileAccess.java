@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class FileAccess {
@@ -28,8 +29,8 @@ public abstract class FileAccess {
 //        }
         try {
             FileWriter fw = new FileWriter(output);
-            for (int i = 0; i < Task.getTotalTask(); i++) {
-                fw.write(Task.taskList[i].toString() + "\n");
+            for (Task t : Task.taskList) {
+                fw.write(t.toString() + "\n");
             }
             fw.close();
         } catch (IOException e) {
@@ -76,7 +77,7 @@ public abstract class FileAccess {
         }
         
         if (isDone.equals("[\u2713]")) {
-            Task.taskList[Task.getTotalTask() - 1].markAsDone();
+            Task.taskList.get(Task.getTotalTask() - 1).markAsDone();
         }
     }
 }
