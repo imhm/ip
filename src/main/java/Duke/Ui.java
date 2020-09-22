@@ -6,14 +6,14 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Ui {
+    private Scanner in;
 
     public Ui() {
-        printWelcomeMessage();
+        this.in = new Scanner(System.in);
     }
-    public static String readCommand() {
-        Scanner in = new Scanner(System.in);
-        String userInput = in.nextLine().trim();
 
+    public String readCommand() {
+        String userInput = in.nextLine().trim();
         return userInput;
     }
 
