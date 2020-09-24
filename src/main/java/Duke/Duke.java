@@ -14,7 +14,6 @@ public class Duke {
     private Storage storage;
     private TaskList taskList;
     private Ui ui;
-    private Parser parser;
 
     /**
      * Initializes the application and imports the data stored locally to the application.
@@ -24,7 +23,6 @@ public class Duke {
         ui = new Ui();
         storage = new Storage(filePath);
         taskList = new TaskList();
-        parser = new Parser(taskList);
 
         try {
             storage.importData(taskList);
@@ -43,11 +41,14 @@ public class Duke {
         while (!isExit) {
             try {
                 String fullCommand = ui.readCommand();
-                Command c = parser.handleUserInput(fullCommand);
+                Command c = Parser.handleUserInput(fullCommand);
+                Ui.printDukeBorder(true);
                 c.execute(taskList, storage);
                 isExit = c.isExit();
             } catch (DukeException e) {
                 Ui.printDukeExceptionMessage(e, taskList);
+            } finally {
+                Ui.printDukeBorder(false);
             }
         }
         Ui.printExitMessage();

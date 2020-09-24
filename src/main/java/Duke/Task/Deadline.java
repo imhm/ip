@@ -3,7 +3,7 @@ package Duke.Task;
 /**
  * Represents a deadline task.
  */
-public class Deadline extends Task{
+public class Deadline extends Task {
     protected String by;
 
     public Deadline(String description, String by) {
