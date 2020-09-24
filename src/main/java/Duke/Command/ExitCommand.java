@@ -2,6 +2,7 @@ package Duke.Command;
 
 import Duke.Storage;
 import Duke.Task.TaskList;
+import Duke.Ui;
 
 public class ExitCommand extends Command{
 

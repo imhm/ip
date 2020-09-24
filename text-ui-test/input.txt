@@ -1,17 +1,14 @@
 todo
 deadline wrongcommand
-find
 event
 done
 delete
 wrongcommand
 done1
 delete1
-find no such keyword
 todo read book
 deadline return book /by June 6th
 event project meeting /at July 6th 2-4pm
-find book
 list
 done 3
 delete 2

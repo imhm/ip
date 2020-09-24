@@ -10,11 +10,13 @@ public class Duke {
     private Storage storage;
     private TaskList taskList;
     private Ui ui;
+    private Parser parser;
 
     public Duke(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
         taskList = new TaskList();
+        parser = new Parser(taskList);
 
         try {
             storage.importData(taskList);
@@ -28,15 +30,12 @@ public class Duke {
         boolean isExit = false;
         while (!isExit) {
             try {
-                Ui.printDukeBorder(true);
                 String fullCommand = ui.readCommand();
-                Command c = Parser.handleUserInput(fullCommand);
+                Command c = parser.handleUserInput(fullCommand);
                 c.execute(taskList, storage);
                 isExit = c.isExit();
             } catch (DukeException e) {
                 Ui.printDukeExceptionMessage(e, taskList);
-            } finally {
-                Ui.printDukeBorder(false);
             }
         }
         Ui.printExitMessage();

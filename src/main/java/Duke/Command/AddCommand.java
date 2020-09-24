@@ -10,10 +10,6 @@ import Duke.Ui;
 
 public class AddCommand extends Command {
 
-    public static final String TODO = "todo";
-    public static final String DEADLINE = "deadline";
-    public static final String EVENT = "event";
-
     public AddCommand(String userInput) {
         super(userInput);
     }
@@ -23,35 +19,27 @@ public class AddCommand extends Command {
         String[] command;
 
         command = userInput.split(" ", 2);
-        String commandType = command[0];
-        String taskDescription;
-        String taskDate;
 
-        switch (commandType) {
-        case TODO:
+        switch (command[0]) {
+        case "todo":
             try {
-                taskDescription = command[1];
-                taskList.addTask(new Todo(taskDescription));
+                taskList.addTask(new Todo(command[1]));
             } catch (Exception e) {
                 throw new DukeException("todo");
             }
             break;
-        case DEADLINE:
+        case "deadline":
             try {
                 command = command[1].split("/by");
-                taskDescription = command[0];
-                taskDate = command[1];
-                taskList.addTask(new Deadline(taskDescription, taskDate));
+                taskList.addTask(new Deadline(command[0], command[1]));
             } catch (Exception e) {
                 throw new DukeException("deadline");
             }
             break;
-        case EVENT:
+        case "event":
             try {
                 command = command[1].split("/at");
-                taskDescription = command[0];
-                taskDate = command[1];
-                taskList.addTask(new Event(taskDescription, taskDate));
+                taskList.addTask(new Event(command[0], command[1]));
             } catch (Exception e) {
                 throw new DukeException("event");
             }

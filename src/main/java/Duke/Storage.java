@@ -32,14 +32,17 @@ public class Storage {
     }
 
     public void importData(TaskList taskList) throws FileNotFoundException {
+        try {
+            File input = new File(storageFilePath);
+            Scanner s = new Scanner(input);
 
-        File input = new File(storageFilePath);
-        Scanner s = new Scanner(input);
-
-        while (s.hasNext()) {
-            extractCommandFromStorage(s.nextLine(), taskList);
+            while (s.hasNext()) {
+                extractCommandFromStorage(s.nextLine(), taskList);
+            }
+            Ui.printImportDataSuccessMessage();
+        } catch (FileNotFoundException e) {
+            Ui.printNoImportDataMessage();
         }
-        Ui.printImportDataSuccessMessage();
     }
 
     private static void createFile(File output) {
@@ -61,30 +64,23 @@ public class Storage {
     public void extractCommandFromStorage(String command, TaskList taskList) {
         String task = command.substring(1, 2);
         String isDone = command.substring(3, 6);
-        String taskDetails = command.substring(7); // includes task's description and date
-        String taskDescription;
-        String taskDate;
+        String taskDescription = command.substring(7);
 
         switch (task) {
         case "T":
-            taskDescription = taskDetails;
             taskList.addTask(new Todo(taskDescription));
             break;
         case "D":
-            int indexEndOfDesc = taskDetails.indexOf(" (by: ");
-            taskDetails = taskDetails.replace("(by: ", "");
-            taskDescription = taskDetails.substring(0, indexEndOfDesc);
-            taskDate = taskDetails.substring(indexEndOfDesc, taskDetails.length() - 1);
-
-            taskList.addTask(new Deadline(taskDescription, taskDate));
+            int indexEndOfDesc = taskDescription.indexOf(" (by: ");
+            taskDescription = taskDescription.replace("(by: ", "");
+            taskList.addTask(new Deadline(taskDescription.substring(0, indexEndOfDesc),
+                    taskDescription.substring(indexEndOfDesc, taskDescription.length() - 1)));
             break;
         case "E":
-            indexEndOfDesc = taskDetails.indexOf(" (at: ");
-            taskDetails = taskDetails.replace("(at: ", "");
-            taskDescription = taskDetails.substring(0, indexEndOfDesc);
-            taskDate = taskDetails.substring(indexEndOfDesc, taskDetails.length() - 1);
-
-            taskList.addTask(new Event(taskDescription, taskDate));
+            indexEndOfDesc = taskDescription.indexOf(" (at: ");
+            taskDescription = taskDescription.replace("(at: ", "");
+            taskList.addTask(new Event(taskDescription.substring(0, indexEndOfDesc),
+                    taskDescription.substring(indexEndOfDesc, taskDescription.length() - 1)));
             break;
         default:
             System.out.println(task);
