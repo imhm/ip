@@ -8,6 +8,9 @@ import Duke.Task.TaskList;
 import Duke.Task.Todo;
 import Duke.Ui;
 
+/**
+ * Adds a task to the task list, depending on what kind of task it is (event, deadline, todo)
+ */
 public class AddCommand extends Command {
 
     public static final String TODO = "todo";

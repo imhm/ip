@@ -1,2 +1,0 @@
-[T][✘] read book
-[E][✓] project meeting  (at: July 6th 2-4pm)

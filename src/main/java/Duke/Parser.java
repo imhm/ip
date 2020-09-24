@@ -2,6 +2,9 @@ package Duke;
 
 import Duke.Command.*;
 
+/**
+ * Determine the type of command input by the user and calls for the respective command function.
+ */
 public class Parser {
 
     public static Command handleUserInput(String userInput) {

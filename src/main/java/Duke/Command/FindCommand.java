@@ -1,11 +1,14 @@
 package Duke.Command;
 
+
 import Duke.DukeException;
 import Duke.Storage;
-import Duke.Task.Task;
 import Duke.Task.TaskList;
 import Duke.Ui;
 
+/**
+ * Search the task list for tasks that contains the keyword specified by the user and prints them.
+ */
 public class FindCommand extends Command {
     private String keyword;
 
@@ -24,4 +27,5 @@ public class FindCommand extends Command {
             throw new DukeException("keyword not found");
         }
     }
+
 }

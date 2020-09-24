@@ -5,6 +5,9 @@ import Duke.Storage;
 import Duke.Task.TaskList;
 import Duke.Ui;
 
+/**
+ * Deletes the task specified by the user.
+ */
 public class DeleteCommand extends Command {
 
     public DeleteCommand(String command) {
