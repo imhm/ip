@@ -125,12 +125,11 @@ When you start the programme, Duke retrieves the stored data from "home_folder/d
 
 ## Command Summary
 
-| Feature | Command format |
+| **Feature** | **Command format** |
 
-| :------: | :----- |
+| :-----------: | :------------ |
 
 | Add todo task | `todo` *your_task_description* |
-
 | Add deadline task | `deadline` *your_deadline_description* `/by` *due date* |
 
 | Add event task | `event` *your_event_description* `/at` *event date* |
