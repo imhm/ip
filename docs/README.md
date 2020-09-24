@@ -124,9 +124,10 @@ When you start the programme, Duke retrieves the stored data from "home_folder/d
 
 
 ## Command Summary
+
 | Feature | Command format |
 
-| ------------ | :------------- |
+| :------: | :----- |
 
 | Add todo task | `todo` *your_task_description* |
 
