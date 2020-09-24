@@ -6,6 +6,9 @@ import Duke.Task.TaskList;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Text UI of the application.
+ */
 public class Ui {
     private Scanner in;
 
@@ -45,11 +48,23 @@ public class Ui {
         }
     }
 
+    /**
+     * Shows the task deleted and the number of tasks left in the list.
+     *
+     * @param taskNumberDelete
+     * @param taskList
+     */
     public static void printDeleteTaskMessage(int taskNumberDelete, TaskList taskList) {
+        /* - 1 is catered for array list's index starting from 0. */
         System.out.println("Task deleted:\n" + taskList.getTaskList().get(taskNumberDelete - 1));
         System.out.println("Your total tasks: " + (taskList.getTotalTask() - 1));
     }
 
+    /**
+     * Shows the user the list of tasks in the task list, formatted as an indexed list starting from 1.
+     *
+     * @param taskList tasks retrieved from this task list.
+     */
     public static void printTaskListView(TaskList taskList) {
         System.out.println("This is your list of task(s):");
         for (int i = 0; i < taskList.getTotalTask(); i++) {
@@ -57,13 +72,26 @@ public class Ui {
         }
     }
 
+    /**
+     * Shows the user the task (that was indicated by the user) that was marked as done .
+     *
+     * @param taskNumberCompleted task number indicated by the user as done.
+     */
     public static void printCompleteTaskMessage(int taskNumberCompleted, TaskList taskList) {
         System.out.println("Good work! I've marked this task as done:\n" + taskList.getTaskList().get(taskNumberCompleted - 1));
     }
 
+    /**
+     * Shows the user the task that was added and the total number of tasks in the task list.
+     *
+     * @param taskList the list of task that the task was added to.
+     */
     public static void printAddTaskMessage(TaskList taskList) {
         System.out.println("Got it. I've added this task:");
+
+        /* - 1 is catered for array list's index starting from 0. */
         System.out.println(taskList.getTaskList().get(taskList.getTaskList().size() - 1));
+
         System.out.println("Your total tasks: " + taskList.getTotalTask());
     }
 
@@ -73,7 +101,7 @@ public class Ui {
         for (Task t : taskList.getTaskList()) {
             if (t.getDescription().contains(keyword)) {
                 if (!isFound) { // first instance when keyword is found
-                    System.out.println("Here are the matching tasks in your list: ");
+                    System.out.println("Here are the matching tasks in your list:");
                 }
                 isFound = true;
                 System.out.println(t);
@@ -84,6 +112,12 @@ public class Ui {
         }
     }
 
+    /**
+     * Prints the error message based on the invalid command input by the user.
+     *
+     * @param e        type of error.
+     * @param taskList the working list of task.
+     */
     public static void printDukeExceptionMessage(DukeException e, TaskList taskList) {
         switch (e.getException()) {
         case "todo":
@@ -117,6 +151,11 @@ public class Ui {
         }
     }
 
+    /**
+     * Shows the user the exception that occurred when saving data to storage file.
+     *
+     * @param e exception message.
+     */
     public static void printSaveDataErrorMessage(IOException e) {
         System.out.println("Unable to save data. Error: " + e.getMessage());
     }
@@ -129,6 +168,11 @@ public class Ui {
         System.out.println("Existing data imported.");
     }
 
+    /**
+     * Shows the user the exception that occurred when creating a storage file
+     *
+     * @param e exception message.
+     */
     public static void printFileCreateErrorMessage(IOException e) {
         System.out.println("Cannot create file; reason: " + e.getMessage());
     }
