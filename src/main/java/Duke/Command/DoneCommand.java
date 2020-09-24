@@ -5,6 +5,9 @@ import Duke.Storage;
 import Duke.Task.TaskList;
 import Duke.Ui;
 
+/**
+ * Set the task specified by the user as done.
+ */
 public class DoneCommand extends Command {
     public DoneCommand(String command) {
         super(command);

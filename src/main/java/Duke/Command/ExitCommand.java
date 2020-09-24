@@ -2,8 +2,10 @@ package Duke.Command;
 
 import Duke.Storage;
 import Duke.Task.TaskList;
-import Duke.Ui;
 
+/**
+ * Saves the current task list locally before terminating the programme.
+ */
 public class ExitCommand extends Command{
 
     public ExitCommand(String userInput) {

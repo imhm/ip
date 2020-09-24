@@ -5,6 +5,9 @@ import Duke.Task.*;
 
 import java.util.Scanner;
 
+/**
+ * Determine the type of command input by the user and calls for the respective command function.
+ */
 public class Parser {
 
     private TaskList taskList;
