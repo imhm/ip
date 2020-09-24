@@ -45,7 +45,7 @@ Adds a todo task to your list of tasks. The task is marked as incomplete by defa
 ### Add a deadline task: `deadline`
 Adds a deadline task to your list of tasks. The task is marked as incomplete by default.
 
-#### Command: `deadline` *your_deadline_description* `/by` due date
+#### Command: `deadline` *your_deadline_description* `/by` *due date*
  
 #### Expected outcome: A deadline task is added to your task list. You can view it using the `list` feature.
 
@@ -54,7 +54,7 @@ Adds a deadline task to your list of tasks. The task is marked as incomplete by 
 ### Add an event task: `event`
 Adds an event task to your list of tasks. The task is marked as incomplete by default.
 
-#### Command: `event` *your_event_description* `/at` event date
+#### Command: `event` *your_event_description* `/at` *event date*
 
 #### Expected outcome: An event is added to your task list. You can view it using the `list` feature.
 
@@ -115,6 +115,7 @@ When you start the programme, Duke retrieves the stored data from "home_folder/d
 
 
 
+
 ## FAQ
 **Q:** How do I transfer my data to another Computer?
 
@@ -125,13 +126,13 @@ When you start the programme, Duke retrieves the stored data from "home_folder/d
 ## Command Summary
 | Feature | Command format |
 
-| ------------ | -------------|
+| ------------ | :------------- |
 
 | Add todo task | `todo` *your_task_description* |
 
-| Add deadline task | `deadline` *your_deadline_description* `/by` due date |
+| Add deadline task | `deadline` *your_deadline_description* `/by` *due date* |
 
-| Add event task | `event` *your_event_description* `/at` event date |
+| Add event task | `event` *your_event_description* `/at` *event date* |
 
 | Mark task as done | `done` *task_number* |
 
