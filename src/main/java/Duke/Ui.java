@@ -1,5 +1,6 @@
 package Duke;
 
+import Duke.Task.Task;
 import Duke.Task.TaskList;
 
 import java.io.IOException;
@@ -13,8 +14,7 @@ public class Ui {
     }
 
     public String readCommand() {
-        String userInput = in.nextLine().trim();
-        return userInput;
+        return in.nextLine().trim();
     }
 
     public static void printWelcomeMessage() {
@@ -39,40 +39,49 @@ public class Ui {
 
     public static void printDukeBorder(boolean top) {
         if (top) {
-            System.out.println("............. DUKE CHATBOX ^^ ............");
+            System.out.println("............. DUKE CHAT BOX ^^ ............");
         } else {
-            System.out.println("..........................................");
+            System.out.println("...........................................");
         }
     }
 
     public static void printDeleteTaskMessage(int taskNumberDelete, TaskList taskList) {
-        printDukeBorder(true);
         System.out.println("Task deleted:\n" + taskList.getTaskList().get(taskNumberDelete - 1));
         System.out.println("Your total tasks: " + (taskList.getTotalTask() - 1));
-        printDukeBorder(false);
     }
 
     public static void printTaskListView(TaskList taskList) {
-        printDukeBorder(true);
         System.out.println("This is your list of task(s):");
         for (int i = 0; i < taskList.getTotalTask(); i++) {
             System.out.printf("%d." + taskList.getTaskList().get(i) + "\n", i + 1);
         }
-        printDukeBorder(false);
     }
 
     public static void printCompleteTaskMessage(int taskNumberCompleted, TaskList taskList) {
-        printDukeBorder(true);
         System.out.println("Good work! I've marked this task as done:\n" + taskList.getTaskList().get(taskNumberCompleted - 1));
-        printDukeBorder(false);
     }
 
     public static void printAddTaskMessage(TaskList taskList) {
-        printDukeBorder(true);
         System.out.println("Got it. I've added this task:");
         System.out.println(taskList.getTaskList().get(taskList.getTaskList().size() - 1));
         System.out.println("Your total tasks: " + taskList.getTotalTask());
-        printDukeBorder(false);
+    }
+
+    public static void printFindTaskMessage(TaskList taskList, String keyword) throws DukeException {
+        boolean isFound = false;
+
+        for (Task t : taskList.getTaskList()) {
+            if (t.getDescription().contains(keyword)) {
+                if (!isFound) { // first instance when keyword is found
+                    System.out.println("Here are the matching tasks in your list: ");
+                }
+                isFound = true;
+                System.out.println(t);
+            }
+        }
+        if (!isFound) {
+            throw new DukeException("keyword not found");
+        }
     }
 
     public static void printDukeExceptionMessage(DukeException e, TaskList taskList) {
@@ -98,6 +107,9 @@ public class Ui {
             break;
         case "delete":
             System.out.println("Error: Please key in the command in this format: delete <task number>");
+            break;
+        case "keyword not found":
+            System.out.println("There are no tasks matching this keyword. Check that you have spelt it correctly.");
             break;
         default:
             System.out.println("Unknown Error.");

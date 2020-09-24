@@ -1,35 +1,23 @@
 package Duke;
 
 import Duke.Command.*;
-import Duke.Task.*;
-
-import java.util.Scanner;
 
 public class Parser {
 
-    private TaskList taskList;
-
-    public Parser(TaskList taskList) {
-        this.taskList = taskList;
-    }
-
-
-    public Command handleUserInput(String userInput) {
+    public static Command handleUserInput(String userInput) {
 
         if (userInput.equals("bye")) {
             return new ExitCommand(userInput);
         } else if (userInput.equals("list")) {
             return new ListCommand(userInput);
-        } else if (userInput.contains("done")) {
+        } else if (userInput.startsWith("done")) {
             return new DoneCommand(userInput);
-        } else if (userInput.contains("delete")) {
+        } else if (userInput.startsWith("delete")) {
             return new DeleteCommand(userInput);
+        } else if (userInput.startsWith("find")) {
+            return new FindCommand(userInput);
         } else {
             return new AddCommand(userInput);
         }
-
-
     }
-
-
 }
