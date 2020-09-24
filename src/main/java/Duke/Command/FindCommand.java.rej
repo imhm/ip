@@ -1,0 +1,4 @@
+diff a/src/main/java/Duke/Command/FindCommand.java b/src/main/java/Duke/Command/FindCommand.java	(rejected hunks)
+@@ -0,0 +1,2 @@
++package Duke.Command;public class FindCommand {
++}
