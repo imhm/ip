@@ -4,10 +4,10 @@ Duke is a desktop app for managing tasks, optimized for use via a Command Line I
 
 
 ## Table Of Contents
-###1. Quick Start
-###2. Features
-###3. FAQ
-###4. Command Summary
+### 1. Quick Start
+### 2. Features
+### 3. FAQ
+### 4. Command Summary
 
 
 
@@ -123,13 +123,13 @@ When you start the programme, Duke retrieves the stored data from "home_folder/d
 
 
 ## Command Summary
-|Feature | Command format|
-|------------ | -------------|
-|Add todo task | `todo` *your_task_description* |
-|Add deadline task| `deadline` *your_deadline_description* `/by` due date|
-|Add event task | `event` *your_event_description* `/at` event date|
-|Mark task as done | `done` *task_number*|
-|Find task(s) | `find` *keyword*|
-|Delete a task | `delete` *task_number*|
-|List tasks| `list`|
-|Exit | `bye`|
+| Feature | Command format |
+| ------------ | -------------|
+| Add todo task | `todo` *your_task_description* |
+| Add deadline task | `deadline` *your_deadline_description* `/by` due date |
+| Add event task | `event` *your_event_description* `/at` event date |
+| Mark task as done | `done` *task_number* |
+| Find task(s) | `find` *keyword* |
+| Delete a task | `delete` *task_number* |
+| List tasks | `list` |
+| Exit | `bye` |
