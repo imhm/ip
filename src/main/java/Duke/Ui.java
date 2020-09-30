@@ -17,9 +17,9 @@ public class Ui {
     }
 
     /**
-     * Returns the next input of the user.
+     * Returns the input of the user.
      *
-     * @return user's next input
+     * @return user's input
      */
     public String readCommand() {
         return in.nextLine().trim();
