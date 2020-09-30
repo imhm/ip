@@ -38,7 +38,15 @@ Adds a todo task to your list of tasks. The task is marked as incomplete by defa
 
 #### Command: `todo` *your_task_description*
 
-#### Expected outcome: A todo task is added to your task list. You can view it using the `list` feature.
+#### Expected outcome: 
+
+............. DUKE CHAT BOX ^^ ............
+Got it. I've added this task:
+[T][✘] wash the dishes
+Your total tasks: 1
+...........................................
+
+A todo task is added to your task list. You can view it using the `list` feature.
 
 
 
@@ -47,7 +55,15 @@ Adds a deadline task to your list of tasks. The task is marked as incomplete by 
 
 #### Command: `deadline` *your_deadline_description* `/by` *due date*
  
-#### Expected outcome: A deadline task is added to your task list. You can view it using the `list` feature.
+#### Expected outcome: 
+
+............. DUKE CHAT BOX ^^ ............
+Got it. I've added this task:
+[D][✘] finish up my report  (by: Sunday 2pm)
+Your total tasks: 2
+...........................................
+
+A deadline task is added to your task list. You can view it using the `list` feature.
 
 
 
@@ -56,7 +72,15 @@ Adds an event task to your list of tasks. The task is marked as incomplete by de
 
 #### Command: `event` *your_event_description* `/at` *event date*
 
-#### Expected outcome: An event is added to your task list. You can view it using the `list` feature.
+#### Expected outcome: 
+
+............. DUKE CHAT BOX ^^ ............
+Got it. I've added this task:
+[E][✘] family dinner  (at: Wednesday 6pm)
+Your total tasks: 3
+...........................................
+
+An event is added to your task list. You can view it using the `list` feature.
 
 
 
@@ -65,7 +89,14 @@ Marks the task as complete.
 
 #### Command: `done` *task_number*
 
-#### Expected outcome: The task is marked as done. The status icon beside the task description shows a tick.
+#### Expected outcome: 
+
+............. DUKE CHAT BOX ^^ ............
+Good work! I've marked this task as done:
+[T][✓] wash the dishes
+...........................................
+
+The task is marked as done. The status icon beside the task description shows a tick.
 
 
 
@@ -74,7 +105,14 @@ Displays all the tasks that contains the keyword.
 
 #### Command: `find` *keyword*
 
-#### Expected outcome: The list of tasks containing the keywords are shown, along with their respective task number.
+#### Expected outcome: 
+
+............. DUKE CHAT BOX ^^ ............
+Here are the matching tasks in your list:
+3.[E][✘] family dinner  (at: Wednesday 6pm)
+...........................................
+
+The list of tasks containing the keywords are shown, along with their respective task number.
 
 
 
@@ -83,7 +121,15 @@ Removes the task from the task list.
 
 #### Command: `delete` *task_number*
 
-#### Expected outcome: The task is removed from the task list. You will not be able to view it using the `list` feature.
+#### Expected outcome: 
+
+............. DUKE CHAT BOX ^^ ............
+Task deleted:
+[D][✘] finish up my report  (by: Sunday 2pm)
+Your total tasks: 2
+...........................................
+
+The task is removed from the task list. You will not be able to view it using the `list` feature.
 
 
 
@@ -92,7 +138,15 @@ Displays all tasks in the task list.
 
 #### Command: `list` 
 
-#### Expected outcome: The list of tasks and the total number of tasks in the task list are shown.
+#### Expected outcome: 
+
+............. DUKE CHAT BOX ^^ ............
+This is your list of task(s):
+1.[T][✓] wash the dishes
+2.[E][✘] family dinner  (at: Wednesday 6pm)
+...........................................
+
+The list of tasks in the task list is shown.
 
 
 
@@ -101,7 +155,17 @@ Terminates Duke and saves the list of tasks into a text file onto your computer.
 
 #### Command: `bye` 
 
-#### Expected outcome: Duke terminates. You can find the saved file under "home_folder/data/duke.txt"
+#### Expected outcome: 
+
+............. DUKE CHAT BOX ^^ ............
+New output file created.
+...........................................
+............. DUKE CHAT BOX ^^ ............
+Bye. Hope to see you again soon!
+
+...........................................
+
+Duke terminates. You can find the saved file under "home_folder/data/duke.txt"
 
 
 
