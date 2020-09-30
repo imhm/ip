@@ -38,13 +38,15 @@ Adds a todo task to your list of tasks. The task is marked as incomplete by defa
 
 #### Command: `todo` *your_task_description*
 
-#### Expected outcome: 
+#### Expected outcome:
+
 
 ............. DUKE CHAT BOX ^^ ............
 Got it. I've added this task:
 [T][✘] wash the dishes
 Your total tasks: 1
 ...........................................
+
 
 A todo task is added to your task list. You can view it using the `list` feature.
 
@@ -55,13 +57,15 @@ Adds a deadline task to your list of tasks. The task is marked as incomplete by 
 
 #### Command: `deadline` *your_deadline_description* `/by` *due date*
  
-#### Expected outcome: 
+#### Expected outcome:
+
 
 ............. DUKE CHAT BOX ^^ ............
 Got it. I've added this task:
 [D][✘] finish up my report  (by: Sunday 2pm)
 Your total tasks: 2
 ...........................................
+
 
 A deadline task is added to your task list. You can view it using the `list` feature.
 
@@ -72,13 +76,15 @@ Adds an event task to your list of tasks. The task is marked as incomplete by de
 
 #### Command: `event` *your_event_description* `/at` *event date*
 
-#### Expected outcome: 
+#### Expected outcome:
+
 
 ............. DUKE CHAT BOX ^^ ............
 Got it. I've added this task:
 [E][✘] family dinner  (at: Wednesday 6pm)
 Your total tasks: 3
 ...........................................
+
 
 An event is added to your task list. You can view it using the `list` feature.
 
@@ -89,12 +95,14 @@ Marks the task as complete.
 
 #### Command: `done` *task_number*
 
-#### Expected outcome: 
+#### Expected outcome:
+
 
 ............. DUKE CHAT BOX ^^ ............
 Good work! I've marked this task as done:
 [T][✓] wash the dishes
 ...........................................
+
 
 The task is marked as done. The status icon beside the task description shows a tick.
 
@@ -105,12 +113,14 @@ Displays all the tasks that contains the keyword.
 
 #### Command: `find` *keyword*
 
-#### Expected outcome: 
+#### Expected outcome:
+
 
 ............. DUKE CHAT BOX ^^ ............
 Here are the matching tasks in your list:
 3.[E][✘] family dinner  (at: Wednesday 6pm)
 ...........................................
+
 
 The list of tasks containing the keywords are shown, along with their respective task number.
 
@@ -121,13 +131,15 @@ Removes the task from the task list.
 
 #### Command: `delete` *task_number*
 
-#### Expected outcome: 
+#### Expected outcome:
+
 
 ............. DUKE CHAT BOX ^^ ............
 Task deleted:
 [D][✘] finish up my report  (by: Sunday 2pm)
 Your total tasks: 2
 ...........................................
+
 
 The task is removed from the task list. You will not be able to view it using the `list` feature.
 
@@ -155,7 +167,8 @@ Terminates Duke and saves the list of tasks into a text file onto your computer.
 
 #### Command: `bye` 
 
-#### Expected outcome: 
+#### Expected outcome:
+
 
 ............. DUKE CHAT BOX ^^ ............
 New output file created.
@@ -164,6 +177,7 @@ New output file created.
 Bye. Hope to see you again soon!
 
 ...........................................
+
 
 Duke terminates. You can find the saved file under "home_folder/data/duke.txt"
 
@@ -175,7 +189,7 @@ When you start the programme, Duke retrieves the stored data from "home_folder/d
 
 #### Command: **Not Applicable**
 
-#### Expected outcome: You can view it your list of tasks saved previously using the `list` feature. See also *Exit the programme* feature.
+#### Expected outcome: You can view your list of tasks saved using the `list` feature. See also *Exit the programme* feature.
 
 
 
