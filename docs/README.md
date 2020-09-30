@@ -189,7 +189,24 @@ When you start the programme, Duke retrieves the stored data from "home_folder/d
 
 #### Command: **Not Applicable**
 
-#### Expected outcome: You can view your list of tasks saved using the `list` feature. See also *Exit the programme* feature.
+#### Expected outcome: 
+
+	Existing data imported.
+	............. DUKE CHAT BOX ^^ ............
+	Hello from
+	 ____        _
+	|  _ \ _   _| | _____
+	| | | | | | | |/ / _ \
+	| |_| | |_| |   <  __/
+	|____/ \__,_|_|\_\___|
+
+	____________________________________________________________
+	 Hello! I'm Duke
+	 What can I do for you?
+	...........................................
+
+When you start the programme, Duke informs you if existing data is imported or not.
+If existing data is imported, you can view your list of tasks saved using the `list` feature. See also *Exit the programme* feature.
 
 
 
