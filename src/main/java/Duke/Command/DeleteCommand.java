@@ -6,7 +6,7 @@ import Duke.Task.TaskList;
 import Duke.Ui;
 
 /**
- * Deletes the task specified by the user.
+ * Deletes the task of task number specified by the user.
  */
 public class DeleteCommand extends Command {
 
@@ -14,6 +14,13 @@ public class DeleteCommand extends Command {
         super(command);
     }
 
+    /**
+     * Deletes the task of task number specified by the user.
+     *
+     * @param taskList the task list to delete the task from.
+     * @param storage not required.
+     * @throws DukeException if the delete command input is invalid.
+     */
     @Override
     public void execute(TaskList taskList, Storage storage) throws DukeException {
         int taskNumberDelete;

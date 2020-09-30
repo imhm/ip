@@ -12,11 +12,20 @@ public class ExitCommand extends Command{
         super(userInput);
     }
 
+    /**
+     * Saves the current task list locally.
+     *
+     * @param taskList the task list to be saved.
+     * @param storage the storage to be saved to.
+     */
     @Override
     public void execute(TaskList taskList, Storage storage) {
         storage.saveData(taskList);
     }
 
+    /**
+     * Sets the isExit flag to true.
+     */
     @Override
     public boolean isExit(){
         return true;

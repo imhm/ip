@@ -12,6 +12,12 @@ public class ListCommand extends Command{
         super(userInput);
     }
 
+    /**
+     * Lists all tasks in the task list to the user.
+     *
+     * @param taskList the task list to list from.
+     * @param storage not required.
+     */
     @Override
     public void execute(TaskList taskList, Storage storage) {
         Ui.printTaskListView(taskList);

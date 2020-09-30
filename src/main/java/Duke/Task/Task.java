@@ -23,7 +23,7 @@ public abstract class Task {
     }
 
     /**
-     * Returns a tick if the task is done. Returns a cross if the task is not done
+     * Returns a tick if the task is done. Returns a cross if the task is not done.
      */
     public String getStatusIcon() {
         return (isDone ? TICK_SYMBOL : CROSS_SYMBOL); //return tick or X symbols
@@ -33,6 +33,9 @@ public abstract class Task {
         return description;
     }
 
+    /**
+     * Sets the task as done.
+     */
     public void markAsDone() {
         this.isDone = true;
     }

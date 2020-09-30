@@ -16,10 +16,18 @@ public class Ui {
         this.in = new Scanner(System.in);
     }
 
+    /**
+     * Returns the next input of the user.
+     *
+     * @return user's next input
+     */
     public String readCommand() {
         return in.nextLine().trim();
     }
 
+    /**
+     * Prints the Duke welcome message.
+     */
     public static void printWelcomeMessage() {
         printDukeBorder(true);
         String logo = " ____        _        \n"
@@ -34,12 +42,20 @@ public class Ui {
         printDukeBorder(false);
     }
 
+    /**
+     * Prints the Duke exit message.
+     */
     public static void printExitMessage() {
         printDukeBorder(true);
         System.out.println("Bye. Hope to see you again soon!\n");
         printDukeBorder(false);
     }
 
+    /**
+     * Prints the border of the chat box.
+     *
+     * @param top set to true to print the top border. Else, set to false to print the bottom border
+     */
     public static void printDukeBorder(boolean top) {
         if (top) {
             System.out.println("............. DUKE CHAT BOX ^^ ............");
@@ -95,16 +111,24 @@ public class Ui {
         System.out.println("Your total tasks: " + taskList.getTotalTask());
     }
 
+    /**
+     * Prints all tasks that contains the keyword, including the task index in the task list.
+     *
+     * @param taskList the list of tasks being searched.
+     * @param keyword keyword indicated by user.
+     * @throws DukeException if there are no tasks that contains the keyword.
+     */
     public static void printFindTaskMessage(TaskList taskList, String keyword) throws DukeException {
         boolean isFound = false;
 
-        for (Task t : taskList.getTaskList()) {
-            if (t.getDescription().contains(keyword)) {
+        for (int i = 0; i < taskList.getTotalTask(); i++) {
+            Task task = taskList.getTaskList().get(i);
+            if (task.getDescription().contains(keyword)) {
                 if (!isFound) { // first instance when keyword is found
                     System.out.println("Here are the matching tasks in your list:");
                 }
                 isFound = true;
-                System.out.println(t);
+                System.out.println((i + 1) + "." + task);
             }
         }
         if (!isFound) {
@@ -160,10 +184,16 @@ public class Ui {
         System.out.println("Unable to save data. Error: " + e.getMessage());
     }
 
+    /**
+     * Prints the message to inform the user that no data was imported.
+     */
     public static void printNoImportDataMessage() {
         System.out.println("No existing data imported.");
     }
 
+    /**
+     * Prints the message to inform the user that existing data was imported.
+     */
     public static void printImportDataSuccessMessage() {
         System.out.println("Existing data imported.");
     }
@@ -177,10 +207,16 @@ public class Ui {
         System.out.println("Cannot create file; reason: " + e.getMessage());
     }
 
+    /**
+     * Prints the message to inform the user that an output file is created.
+     */
     public static void printFileCreatedMessage() {
         System.out.println("New output file created.");
     }
 
+    /**
+     * Prints the message to inform the user that the storage file was overwritten.
+     */
     public static void printFileOverwriteMessage() {
         System.out.println("File exists. Data overwrite.");
     }

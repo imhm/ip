@@ -1,6 +1,10 @@
 package Duke;
 
-import Duke.Task.*;
+import Duke.Task.Deadline;
+import Duke.Task.Event;
+import Duke.Task.Task;
+import Duke.Task.TaskList;
+import Duke.Task.Todo;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,7 +31,10 @@ public class Storage {
      */
     public void saveData(TaskList taskList) {
         File output = new File(storageFilePath);
+
+        /** Attempts to create a file to store the data. */
         createFile(output);
+
         try {
             FileWriter fw = new FileWriter(output);
             for (Task t : taskList.getTaskList()) {
@@ -78,7 +85,7 @@ public class Storage {
     }
 
     /**
-     * Determine the tasks' type and status, and adds them accordingly to the task list.
+     * Determines the tasks' type and status, and adds them accordingly to the task list.
      */
     private void extractCommandFromStorage(String command, TaskList taskList) {
         String task = command.substring(1, 2);

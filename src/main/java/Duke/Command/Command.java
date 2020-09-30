@@ -15,7 +15,7 @@ public abstract class Command {
     }
 
     /**
-     * Executes the command and throws Duke exception when the command is invalid.
+     * Executes the command and throws a Duke exception when the command is invalid.
      */
     public abstract void execute(TaskList taskList, Storage storage) throws DukeException;
 

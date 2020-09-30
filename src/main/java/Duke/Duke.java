@@ -17,6 +17,7 @@ public class Duke {
 
     /**
      * Initializes the application and imports the data stored locally to the application.
+     *
      * @param filePath Filepath of the storage data.
      */
     public Duke(String filePath) {

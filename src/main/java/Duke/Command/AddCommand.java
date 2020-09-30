@@ -9,7 +9,7 @@ import Duke.Task.Todo;
 import Duke.Ui;
 
 /**
- * Adds a task to the task list, depending on what kind of task it is (event, deadline, todo)
+ * Adds a task to the task list, depending on what kind of task (event, deadline, todo) it is.
  */
 public class AddCommand extends Command {
 
@@ -21,6 +21,13 @@ public class AddCommand extends Command {
         super(userInput);
     }
 
+    /**
+     * Creates a task in the task list after determining what type of task (event, deadline, todo).
+     *
+     * @param taskList the task list to add the new task to.
+     * @param storage  not required.
+     * @throws DukeException if the add command input is invalid.
+     */
     @Override
     public void execute(TaskList taskList, Storage storage) throws DukeException {
         String[] command;
