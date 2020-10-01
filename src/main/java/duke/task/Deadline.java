@@ -1,4 +1,4 @@
-package Duke.Task;
+package duke.task;
 
 /**
  * Represents a deadline task.

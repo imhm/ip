@@ -1,13 +1,13 @@
-package Duke;
+package duke;
 
-import Duke.Command.Command;
-import Duke.Task.TaskList;
+import duke.command.Command;
+import duke.task.TaskList;
 
 import java.io.FileNotFoundException;
 
 /**
- *Entry point of the Duke application.
- *Initializes the application and starts the interaction with the user.
+ * Entry point of the Duke application.
+ * Initializes the application and starts the interaction with the user.
  */
 public class Duke {
 

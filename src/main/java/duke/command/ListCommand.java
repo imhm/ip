@@ -1,13 +1,13 @@
-package Duke.Command;
+package duke.command;
 
-import Duke.Storage;
-import Duke.Task.TaskList;
-import Duke.Ui;
+import duke.Storage;
+import duke.task.TaskList;
+import duke.Ui;
 
 /**
  * Lists all tasks in the task list to the user.
  */
-public class ListCommand extends Command{
+public class ListCommand extends Command {
     public ListCommand(String userInput) {
         super(userInput);
     }
@@ -16,7 +16,7 @@ public class ListCommand extends Command{
      * Lists all tasks in the task list to the user.
      *
      * @param taskList the task list to list from.
-     * @param storage not required.
+     * @param storage  not required.
      */
     @Override
     public void execute(TaskList taskList, Storage storage) {

@@ -1,12 +1,12 @@
-package Duke.Command;
+package duke.command;
 
-import Duke.DukeException;
-import Duke.Storage;
-import Duke.Task.Deadline;
-import Duke.Task.Event;
-import Duke.Task.TaskList;
-import Duke.Task.Todo;
-import Duke.Ui;
+import duke.DukeException;
+import duke.Storage;
+import duke.task.Deadline;
+import duke.task.Event;
+import duke.task.TaskList;
+import duke.task.Todo;
+import duke.Ui;
 
 /**
  * Adds a task to the task list, depending on what kind of task (event, deadline, todo) it is.

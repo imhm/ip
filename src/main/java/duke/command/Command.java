@@ -1,8 +1,8 @@
-package Duke.Command;
+package duke.command;
 
-import Duke.DukeException;
-import Duke.Storage;
-import Duke.Task.TaskList;
+import duke.DukeException;
+import duke.Storage;
+import duke.task.TaskList;
 
 /**
  * Represents an executable command.

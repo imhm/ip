@@ -1,12 +1,12 @@
-package Duke;
+package duke;
 
-import Duke.Command.AddCommand;
-import Duke.Command.Command;
-import Duke.Command.DeleteCommand;
-import Duke.Command.DoneCommand;
-import Duke.Command.ExitCommand;
-import Duke.Command.FindCommand;
-import Duke.Command.ListCommand;
+import duke.command.AddCommand;
+import duke.command.Command;
+import duke.command.DeleteCommand;
+import duke.command.DoneCommand;
+import duke.command.ExitCommand;
+import duke.command.FindCommand;
+import duke.command.ListCommand;
 
 /**
  * Determines the type of command input by the user and calls for the respective command function.

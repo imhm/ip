@@ -1,9 +1,9 @@
-package Duke.Command;
+package duke.command;
 
-import Duke.DukeException;
-import Duke.Storage;
-import Duke.Task.TaskList;
-import Duke.Ui;
+import duke.DukeException;
+import duke.Storage;
+import duke.task.TaskList;
+import duke.Ui;
 
 /**
  * Sets the task of task number specified by the user as done.
@@ -17,7 +17,7 @@ public class DoneCommand extends Command {
      * Sets the task of task number specified by the user as done.
      *
      * @param taskList the task list that contains the task.
-     * @param storage not required.
+     * @param storage  not required.
      * @throws DukeException if the done command is invalid.
      */
     @Override

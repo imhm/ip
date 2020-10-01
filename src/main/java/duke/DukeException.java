@@ -1,4 +1,4 @@
-package Duke;
+package duke;
 
 /**
  * Signals an error caused by an invalid command input by the user.
