@@ -181,7 +181,7 @@ Duke terminates.
 
 
 ### Save data:
-Duke saves your list of tasks into a text file onto your computer automatically whenever your task list changes. You can find the saved file under "home_folder/data/duke.txt"
+Duke saves your list of tasks into a text file onto your computer automatically whenever your task list changes. You can find the saved file under "home_folder/data/duke.txt".
 When you start the programme, Duke retrieves the stored data from "home_folder/data/duke.txt" and populates the task list automatically.
 
 #### Command: **Not Applicable**
