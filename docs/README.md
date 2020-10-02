@@ -163,7 +163,7 @@ The list of tasks in the task list is shown.
 
 
 ### Exit the programme: `bye`
-Terminates Duke and saves the list of tasks into a text file onto your computer.
+Terminates Duke.
 
 #### Command: `bye` 
 
@@ -171,20 +171,17 @@ Terminates Duke and saves the list of tasks into a text file onto your computer.
 
 
 	............. DUKE CHAT BOX ^^ ............
-	New output file created.
-	...........................................
-	............. DUKE CHAT BOX ^^ ............
 	Bye. Hope to see you again soon!
 
 	...........................................
 
 
-Duke terminates. You can find the saved file under "home_folder/data/duke.txt"
+Duke terminates.
 
 
 
 ### Save data:
-Duke saves the list of tasks into a text file onto your computer automatically whenever you terminate it. See also *Exit the programme* feature.
+Duke saves your list of tasks into a text file onto your computer automatically whenever your task list changes. You can find the saved file under "home_folder/data/duke.txt"
 When you start the programme, Duke retrieves the stored data from "home_folder/data/duke.txt" and populates the task list automatically.
 
 #### Command: **Not Applicable**
@@ -206,7 +203,7 @@ When you start the programme, Duke retrieves the stored data from "home_folder/d
 	...........................................
 
 When you start the programme, Duke informs you if existing data is imported or not.
-If existing data is imported, you can view your list of tasks saved using the `list` feature. See also *Exit the programme* feature.
+If existing data is imported, you can view your list of tasks saved using the `list` feature.
 
 
 
