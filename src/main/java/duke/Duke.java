@@ -52,7 +52,6 @@ public class Duke {
                 Ui.printDukeBorder(false);
             }
         }
-        Ui.printExitMessage();
     }
 
 

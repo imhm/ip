@@ -3,8 +3,8 @@ package duke.command;
 
 import duke.DukeException;
 import duke.Storage;
-import duke.task.TaskList;
 import duke.Ui;
+import duke.task.TaskList;
 
 /**
  * Searches the task list for tasks that contains the keyword specified by the user and prints them.
@@ -28,6 +28,11 @@ public class FindCommand extends Command {
     public void execute(TaskList taskList, Storage storage) throws DukeException {
 
         keyword = userInput.replace("find", "").trim();
+
+        if (keyword.isEmpty()) {
+            throw new DukeException("keyword not found");
+        }
+
         try {
             Ui.printFindTaskMessage(taskList, keyword);
         } catch (Exception e) {
